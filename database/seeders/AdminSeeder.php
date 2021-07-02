@@ -20,6 +20,7 @@ class AdminSeeder extends Seeder
             'email' => 'admin@crmoto.test',
             'email_verified_at' => now(),
             'is_admin' => true,
+            'password' => bcrypt('asd123'), // password
             'remember_token' => Str::random(10),
         ]);
     }
