@@ -44,6 +44,7 @@ Route::group([
 
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
         Route::get('/track/events/{id}', [TrackEventsController::class, 'show'])->name('tracks.events.show');
+        Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
         Route::resource('events', EventController::class);
         
