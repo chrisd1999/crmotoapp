@@ -22,9 +22,13 @@ class ProfileController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:users',
             'email' => 'required|email|unique:users'
-        ])->validate();
+        ]);
 
-        $user->update($validator);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user->update($request->only('name', 'email'));
 
         return redirect()->back();
     }
