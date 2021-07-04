@@ -22,6 +22,8 @@ class ProfileController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:20', Rule::unique('users')->ignore($user->id)],
+            // TODO: Add this in production
+            // email:rfc,dns
             'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
         ]);
 
