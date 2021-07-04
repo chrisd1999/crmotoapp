@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class TrackEventsController extends Controller
 {
-    public function show($locale, Request $request)
+    public function show(Request $request)
     {
         try {
             $track = Track::with('events')->select('id', 'name')->findOrFail($request->track);

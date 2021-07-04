@@ -50,7 +50,7 @@ class TrackController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($locale, $id)
+    public function show($id)
     {
         $track = Track::where('id', $id)->pluck('name');
         $events = Event::where('track_id', $id)->get();

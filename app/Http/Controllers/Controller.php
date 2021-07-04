@@ -10,4 +10,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function callAction($method, $parameters)
+    {
+        unset($parameters['locale']);
+
+        return parent::callAction($method, $parameters);
+    }
 }

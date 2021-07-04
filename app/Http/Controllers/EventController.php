@@ -29,14 +29,14 @@ class EventController extends Controller
         return view('layouts.events', compact('events', 'tracks'));
     }
 
-    public function show($locale, Event $event)
+    public function show(Event $event)
     {
         $track = $event->track;
 
         return view('events', compact('event', 'track'));
     }
 
-    public function filter($locale, Request $request)
+    public function filter(Request $request)
     {
         if ($request->input('tracks') == 0) {
             return redirect()->route('events.index');
