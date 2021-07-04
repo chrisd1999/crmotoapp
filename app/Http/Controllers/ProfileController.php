@@ -30,6 +30,6 @@ class ProfileController extends Controller
 
         $user->update($request->only('name', 'email'));
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Profile successfully updated.');
     }
 }

@@ -1,14 +1,20 @@
 <x-app-layout>
     {{-- TODO: Refactor in component <x-error></x-error> --}}
-    @if ($errors->any())
-        <div class="pt-0.5 pb-2.5">
+    <div class="pt-0.5 pb-2.5">
+        @if ($errors->any())
+
             <div class="text-white text-sm rounded-md font-bold bg-red-700 py-4 space-y-1">
                 @foreach ($errors->all() as $message)
                     <h4 class="px-4">{{ $message }}</h4>
                 @endforeach
             </div>
-        </div>
-    @endif
+        @endif
+        @if(session('success'))
+            <div class="text-gray-900 text-sm rounded-md font-bold bg-green-500 py-4">
+                <h4 class="px-4">{{ session('success') }}</h4>
+            </div>
+        @endif
+    </div>
     <form method="POST" action="{{ route('profile.update', $user) }}">
         @method("PUT")
         @csrf

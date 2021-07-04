@@ -1274,6 +1274,21 @@ select{
 	background-color: rgba(185, 28, 28, var(--tw-bg-opacity));
 }
 
+.bg-green-200{
+	--tw-bg-opacity: 1;
+	background-color: rgba(167, 243, 208, var(--tw-bg-opacity));
+}
+
+.bg-green-400{
+	--tw-bg-opacity: 1;
+	background-color: rgba(52, 211, 153, var(--tw-bg-opacity));
+}
+
+.bg-green-500{
+	--tw-bg-opacity: 1;
+	background-color: rgba(16, 185, 129, var(--tw-bg-opacity));
+}
+
 .fill-current{
 	fill: currentColor;
 }
@@ -1389,6 +1404,10 @@ select{
 
 .pb-2\.5{
 	padding-bottom: 0.625rem;
+}
+
+.pt-2\.5{
+	padding-top: 0.625rem;
 }
 
 .text-center{
@@ -1583,6 +1602,18 @@ select{
 
 .opacity-55{
 	opacity: 0.55;
+}
+
+.opacity-50{
+	opacity: 0.5;
+}
+
+.opacity-80{
+	opacity: 0.8;
+}
+
+.opacity-40{
+	opacity: 0.4;
 }
 
 .shadow-sm{
