@@ -1375,6 +1375,22 @@ select{
 	padding-bottom: 1.5rem;
 }
 
+.pt-0\.5{
+	padding-top: 0.125rem;
+}
+
+.pt-0{
+	padding-top: 0px;
+}
+
+.pb-2{
+	padding-bottom: 0.5rem;
+}
+
+.pb-2\.5{
+	padding-bottom: 0.625rem;
+}
+
 .text-center{
 	text-align: center;
 }

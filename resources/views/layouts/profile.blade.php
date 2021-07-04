@@ -1,8 +1,8 @@
 <x-app-layout>
     {{-- TODO: Refactor in component <x-error></x-error> --}}
     @if ($errors->any())
-        <div class="pt-1 pb-4">
-            <div class="text-white text-md rounded-md font-light bg-red-700 py-4 space-y-1">
+        <div class="pt-0.5 pb-2.5">
+            <div class="text-white text-sm rounded-md font-bold bg-red-700 py-4 space-y-1">
                 @foreach ($errors->all() as $message)
                     <h4 class="px-4">{{ $message }}</h4>
                 @endforeach
