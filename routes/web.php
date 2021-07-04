@@ -44,7 +44,7 @@ Route::group([
         })->name('dashboard');
 
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-        Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
+        Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
         Route::get('/tracks/events', [TrackEventsController::class, 'show'])->name('tracks.events.show');
 

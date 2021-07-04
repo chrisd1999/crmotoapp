@@ -16,8 +16,12 @@ class ProfileController extends Controller
         return view('layouts.profile', ['user' => Auth::user()]);
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
+        /**
+         * @var User model instance
+         */
+        $user = Auth::user();
 
         $validator = Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:20', Rule::unique('users')->ignore($user->id)],
