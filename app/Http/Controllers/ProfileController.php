@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
@@ -20,8 +21,8 @@ class ProfileController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:users',
-            'email' => 'required|email|unique:users'
+            'name' => ['required', 'string', 'max:20', Rule::unique('users')->ignore($user->id)],
+            'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
         ]);
 
         if ($validator->fails()) {
