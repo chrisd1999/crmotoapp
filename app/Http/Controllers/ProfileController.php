@@ -31,7 +31,7 @@ class ProfileController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $user->update($request->only('name', 'email'));
