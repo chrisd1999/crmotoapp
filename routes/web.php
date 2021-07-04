@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\TrackController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrackEventsController;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -43,11 +44,12 @@ Route::group([
         })->name('dashboard');
 
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-        Route::get('/track/events/{id}', [TrackEventsController::class, 'show'])->name('tracks.events.show');
         Route::put('/profile/{user}', [ProfileController::class, 'update'])->name('profile.update');
 
+        Route::get('/tracks/events', [TrackEventsController::class, 'show'])->name('tracks.events.show');
+
         Route::resource('events', EventController::class);
-        
+
         // Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'is_admin'], function () {
         Route::resource('tracks', TrackController::class);
         // });

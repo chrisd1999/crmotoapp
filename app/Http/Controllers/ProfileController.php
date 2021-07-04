@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
@@ -17,10 +18,13 @@ class ProfileController extends Controller
 
     public function update($locale, Request $request, User $user)
     {
-        $user->update([
-            'name'  => $request->name,
-            'email' => $request->email
-        ]);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|unique:users',
+            'email' => 'required|email|unique:users'
+        ])->validate();
+
+        $user->update($validator);
 
         return redirect()->back();
     }

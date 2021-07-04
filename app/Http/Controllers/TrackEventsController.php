@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Track;
-use App\Models\Event;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class TrackEventsController extends Controller
 {
-    public function show($locale, $id)
+    public function show($locale, Request $request)
     {
-        $events = Event::where('track_id', $id)->get();
+        try {
+            $track = Track::with('events')->select('id', 'name')->findOrFail($request->track);
+        } catch (ModelNotFoundException $err) {
+            return redirect()->route('events.index');
+        }
 
-        return view('layouts.track-event', compact('events'));
+        return view('layouts.track-events', compact('track'));
     }
 }
