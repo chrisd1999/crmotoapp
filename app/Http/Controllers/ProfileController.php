@@ -10,11 +10,10 @@ use Illuminate\Validation\Rule;
 
 class ProfileController extends Controller
 {
+
     public function index()
     {
-        $user = Auth::user();
-
-        return view('layouts.profile', compact('user'));
+        return view('layouts.profile', ['user' => Auth::user()]);
     }
 
     public function update(Request $request, User $user)
