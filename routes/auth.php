@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([
     'prefix' => '{locale}',
-    'middleware' => ['set_locale'],
+    'middleware' => ['set.locale'],
     'where' => ['locale' => '[a-zA-Z]{2}']], function () {
 
     Route::get('/register', [RegisteredUserController::class, 'create'])

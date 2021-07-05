@@ -25,13 +25,9 @@ Route::get('/', function () {
     return redirect(app()->getLocale());
 })->name('home');
 
-Route::get('/profile', function () {
-    return redirect(app()->getLocale() . '/profile');
-});
-
 Route::group([
     'prefix' => '{locale}',
-    'middleware' => ['set_locale'],
+    'middleware' => ['set.locale'],
     'where' => ['locale' => '[a-zA-Z]{2}']
 ], function () {
 
@@ -50,7 +46,7 @@ Route::group([
 
         Route::resource('events', EventController::class);
 
-        // Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'is_admin'], function () {
+        // Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'is.admin'], function () {
         Route::resource('tracks', TrackController::class);
         // });
     });

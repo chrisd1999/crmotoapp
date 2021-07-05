@@ -23,6 +23,8 @@ class SetLocale
         // with the new query e.g localhost/xdd
         // Need to figure out will we even pass locale not first always.
 
+        // Changing locale in login page does not work, as it redirect to en, because the url is not changed.
+
         $queryLocale = $request->hasAny(config('app.available_locales')) ? array_keys($request->query())[0] : null;
         $locale = $queryLocale ?? $request->segment(1);
 
