@@ -13,7 +13,7 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('layouts.profile', ['user' => Auth::user()]);
+        return view('layouts.profile');
     }
 
     public function update(Request $request)
