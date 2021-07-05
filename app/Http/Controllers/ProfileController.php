@@ -31,11 +31,11 @@ class ProfileController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return back()->withErrors($validator)->withInput();
         }
 
         $user->update($request->only('name', 'email'));
 
-        return redirect()->back()->with('success', 'Profile successfully updated.');
+        return back()->with('success', 'Profile successfully updated.');
     }
 }
