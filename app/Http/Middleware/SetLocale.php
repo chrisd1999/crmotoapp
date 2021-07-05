@@ -19,8 +19,11 @@ class SetLocale
     {
         // TODO: Refactor to change the uri based on request query for aesthetics.
         // Currently, it changes the locale but has query in the url e.g. ?pl=
+        // Bug when passed other query string first, because array_keys($request->query())[0], new url is
+        // with the new query e.g localhost/xdd
+        // Need to figure out will we even pass locale not first always.
 
-        $queryLocale = $request->hasAny(['en', 'pl', 'de']) ? array_keys($request->query())[0] : null;
+        $queryLocale = $request->hasAny(config('app.available_locales')) ? array_keys($request->query())[0] : null;
         $locale = $queryLocale ?? $request->segment(1);
 
         app()->setLocale($locale);
